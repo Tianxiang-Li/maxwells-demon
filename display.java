@@ -2,14 +2,14 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class display extends JPanel 
+public class Display extends JPanel 
     implements ActionListener{
     Timer clicky;
     Particle[] particles;
     int particleCount;
     double deltat = 0.1;
 
-    public display() {
+    public Display() {
         setBackground( Color.WHITE );
         
         particleCount = 10;
