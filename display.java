@@ -36,6 +36,7 @@ public class Display extends JPanel
             }
         );
         setSize( 600, 300 );
+        setVisible(true);
 
     }
 

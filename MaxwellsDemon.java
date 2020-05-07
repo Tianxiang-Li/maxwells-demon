@@ -21,6 +21,9 @@ public class MaxwellsDemon extends JFrame {
         buttons.setBackground( Color.WHITE );
         buttons.setLayout( new FlowLayout() );
         add(buttons);
+
+        setSize( new Dimension( 600, 600 ) );
+        setVisible(true);
     }
 
 }
