@@ -2,23 +2,24 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class display extends JFrame {
-    JPanel playArea;
+public class display extends JPanel 
+    implements ActionListener{
+    Timer clicky;
     Particle[] particles;
-    
-    public static void main( String[] args ) {
-        new display();
-    }
+    int particleCount;
+    double deltat = 0.1;
 
     public display() {
-        setDefaultCloseOperation( EXIT_ON_CLOSE );
-        setTitle( "Maxwell's Demon" );
-
-        playArea = new JPanel();
-        playArea.setBackground( Color.white );
-        this.add( playArea );
+        setBackground( Color.WHITE );
         
-        playArea.addMouseListener( 
+        particleCount = 10;
+        particles = new Particle[100];
+        for ( int i = 0; i < particleCount; i++ ) { particles[i] = new Particle(); }
+
+        clicky = new Timer( (int)( 1000 * deltat ), this );
+        clicky.start();
+
+        addMouseListener( 
             new MouseAdapter() {
                 public void mousePressed( MouseEvent m ) {
                     for (Particle p : particles) {
@@ -32,11 +33,29 @@ public class display extends JFrame {
                         p.open = false;
                     }
                 }
-
             }
         );
-         
+        setSize( 600, 300 );
+
     }
+
+    public void actionPerformed( ActionEvent e ) {
+        if (e.getSource() == clicky ) { moveAll(); }
+        repaint();
+    }
+
+    @Override
+    public void paint( Graphics g ) {
+        g.setColor( Color.YELLOW );
+        g.fillRect(0, 0, 600, 300);
+
+        for ( Particle p : particles ) { p.drawMe(g); }
+    }
+
+    public void moveAll() {
+        for ( Particle p : particles ) { p.move(deltat); }
+    }
+
 
     
 }
