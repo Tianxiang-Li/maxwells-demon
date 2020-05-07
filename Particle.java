@@ -1,13 +1,13 @@
 import java.awt.*;
 import javax.swing.*;
 
-public class particles {
+public class Particle {
     double x, y;
     double vx, vy;
     double oldx, oldy;
-    String color;
+    boolean isFast; //i.e. fast or slow
 
-    public particles() {
+    public Particle() {
 
     }
 
