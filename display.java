@@ -8,6 +8,8 @@ public class Display extends JPanel
     Particle[] particles;
     int particleCount;
     double deltat = 0.1;
+    double leftTemp = 0, rightTemp = 0;
+    int leftCount = 0, rightCount = 0;
 
     public Display() {
         setBackground( Color.WHITE );
@@ -49,8 +51,25 @@ public class Display extends JPanel
     public void paint( Graphics g ) {
         g.setColor( Color.YELLOW );
         g.fillRect(0, 0, 600, 300);
+        g.setColor( Color.BLACK );
+        g.drawLine(300, 0, 300, 300);
 
-        for ( Particle p : particles ) { p.drawMe(g); }
+        for ( Particle p : particles ) {
+            p.drawMe(g); 
+            if (p.x < 300) { 
+                leftTemp += p.v * p.v; 
+                leftCount++;
+            }
+            else {
+                rightTemp += p.v * p.v; 
+                rightCount++;
+            }
+        }
+        leftTemp /= leftCount;
+        rightTemp /= rightCount; 
+        g.drawString("left chamber average temperature: " + leftTemp, 10, 10);
+        g.drawString("right chamber average temperature: " + rightTemp, 310, 10);
+
     }
 
     public void moveAll() {
