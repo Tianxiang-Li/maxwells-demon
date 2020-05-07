@@ -12,7 +12,7 @@ public class Display extends JPanel
     int leftCount = 0, rightCount = 0;
 
     public Display() {
-        setBackground( Color.WHITE );
+        setBackground( Color.YELLOW );
         
         particleCount = 10;
         particles = new Particle[100];
@@ -49,8 +49,7 @@ public class Display extends JPanel
 
     @Override
     public void paint( Graphics g ) {
-        g.setColor( Color.YELLOW );
-        g.fillRect(0, 0, 600, 300);
+
         g.setColor( Color.BLACK );
         g.drawLine(300, 0, 300, 300);
 
