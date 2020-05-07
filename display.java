@@ -16,11 +16,13 @@ public class Display extends JPanel
         
         particleCount = 10;
         particles = new Particle[100];
-        for ( int i = 0; i < particleCount; i++ ) { particles[i] = new Particle(); }
+        for ( int i = 0; i < particleCount; i++ ) { particles[i] = new Particle(); } 
 
-        clicky = new Timer( (int)( 1000 * deltat ), this );
+        clicky = new Timer( (int)( 10 * deltat ), this );
         clicky.start();
 
+        
+        
         addMouseListener( 
             new MouseAdapter() {
                 public void mousePressed( MouseEvent m ) {
@@ -39,7 +41,7 @@ public class Display extends JPanel
         );
         setSize( 600, 300 );
         setVisible(true);
-
+        System.out.println("finished up to this step\n");
     }
 
     public void actionPerformed( ActionEvent e ) {

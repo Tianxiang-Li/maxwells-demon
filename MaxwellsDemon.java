@@ -62,6 +62,7 @@ public class MaxwellsDemon extends JFrame
             }
 
         }
+        repaint();
     }
 
 }
