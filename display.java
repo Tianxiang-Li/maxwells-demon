@@ -57,6 +57,5 @@ public class Display extends JPanel
         for ( Particle p : particles ) { p.move(deltat); }
     }
 
-
     
 }
