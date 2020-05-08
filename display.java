@@ -41,7 +41,7 @@ public class Display extends JPanel
         );
         setSize( 600, 300 );
         setVisible(true);
-        System.out.println("finished up to this step\n");
+        
     }
 
     public void actionPerformed( ActionEvent e ) {

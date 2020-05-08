@@ -13,11 +13,11 @@ public class Particle {
     public Particle() {
         x = Math.random() * 400 + 100;
         y = Math.random() * 200 + 100;
-        v = 2 + Math.random() * 4;
+        v = 200 + Math.random() * 400;
         a = Math.random() * 2 * Math.PI;
         vx = v * Math.cos(a);
         vy = v * Math.sin(a);
-        if (v >= 4 ) { isFast = true; }
+        if (v >=  400 ) { isFast = true; }
         else { isFast = false; }
     }
 
@@ -26,8 +26,8 @@ public class Particle {
         x = x1;
         y = y1;
         isFast = speed;
-        if (isFast) { v = 4 + Math.random() * 2; }
-        else {v = 2 + Math.random() * 2; }
+        if (isFast) { v = 400 + Math.random() * 200; }
+        else {v = 200 + Math.random() * 200; }
         a = Math.random() * 2 * Math.PI;
         vx = v * Math.cos(a);
         vy = v * Math.sin(a);
@@ -45,12 +45,12 @@ public class Particle {
 
     public void stayInArea() {
         if (!open) {
-            if ( oldx < 299 && x >= 299 ) { vx *= -1; }
-            if ( oldx > 299 && x <= 299 ) { vx *= -1; }
+            if ( oldx < 300 && x >= 300 ) { vx *= -1; }
+            if ( oldx > 300 && x <= 300 ) { vx *= -1; }
         }
         
-        if ( x <= 1 || x >= 599 ) { vx *= -1; }
-        if ( y <= 1 || y >= 299 ) { vy *= -1; }
+        if ( x <= 0 || x >= 600 ) { vx *= -1; }
+        if ( y <= 0 || y >= 300 ) { vy *= -1; }
     }
 
     public void drawMe( Graphics g ) {
