@@ -70,6 +70,8 @@ public class Display extends JPanel
         rightTemp /= rightCount; 
         g.drawString("left chamber average temperature: " + leftTemp, 10, 10);
         g.drawString("right chamber average temperature: " + rightTemp, 310, 10);
+        leftTemp = rightTemp = 0;
+        leftCount = rightCount = 0;
 
     }
 

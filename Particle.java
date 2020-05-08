@@ -11,8 +11,8 @@ public class Particle {
     int resolution = Toolkit.getDefaultToolkit().getScreenResolution();
 
     public Particle() {
-        x = Math.random() * 400 + 100;
-        y = Math.random() * 200 + 100;
+        x = Math.random() * 500 + 50;
+        y = Math.random() * 200 + 50;
         v = 200 + Math.random() * 400;
         a = Math.random() * 2 * Math.PI;
         vx = v * Math.cos(a);
@@ -45,12 +45,12 @@ public class Particle {
 
     public void stayInArea() {
         if (!open) {
-            if ( oldx < 300 && x >= 300 ) { vx *= -1; }
-            if ( oldx > 300 && x <= 300 ) { vx *= -1; }
+            if ( oldx < 275 && x >= 275 ) { vx *= -1; }
+            if ( oldx > 325 && x <= 325 ) { vx *= -1; }
         }
         
-        if ( x <= 0 || x >= 600 ) { vx *= -1; }
-        if ( y <= 0 || y >= 300 ) { vy *= -1; }
+        if ( x <= 50 || x >= 550 ) { vx *= -1; }
+        if ( y <= 50 || y >= 250 ) { vy *= -1; }
     }
 
     public void drawMe( Graphics g ) {

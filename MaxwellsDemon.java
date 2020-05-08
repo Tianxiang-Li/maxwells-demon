@@ -92,12 +92,13 @@ public class MaxwellsDemon extends JFrame
                 rightCount++;
             }
         }
-        leftTemp = leftTemp * resolution / leftCount;
-        rightTemp = rightTemp * resolution / rightCount; 
+        leftTemp = leftTemp / leftCount / 10000;
+        rightTemp = rightTemp / rightCount / 10000; 
         g.setColor(Color.BLACK);
-        g.drawString("left chamber average temperature: " + leftTemp, 20, 280);
-        g.drawString("right chamber average temperature: " + rightTemp, 320, 280);
-
+        g.drawString("left chamber average temperature: " + String.format("%.2f", leftTemp), 20, 280);
+        g.drawString("right chamber average temperature: " + String.format("%.2f", rightTemp), 320, 280);
+        leftTemp = rightTemp = 0;
+        leftCount = rightCount = 0;
     }
 
     public void moveAll() {
@@ -115,14 +116,14 @@ public class MaxwellsDemon extends JFrame
             boolean fast;
             for (int i = 0; i < 4; i++) {
 
-                y = Math.random() * 200 + 100;
+                y = Math.random() * 200 + 50;
 
                 if ( i < 2 ) {
-                    x = Math.random() * 200 + 100;
+                    x = Math.random() * 225 + 50;
                     fast = (i == 0);
                 }
                 else {
-                    x = Math.random() * 200 + 400;
+                    x = Math.random() * 225 + 325;
                     fast = (i == 2);
                 }
                 particles[particleCount++] = new Particle( (int)x, (int)y, fast );
