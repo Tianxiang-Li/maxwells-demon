@@ -79,9 +79,13 @@ public class MaxwellsDemon extends JFrame
         super.paint( g );
         g.setColor( Color.YELLOW );
         g.fillRect( 0, 0, 600, 300 );
+        g.setColor( Color.BLACK );
         if (!particles[0].open) {
-            g.setColor( Color.BLACK );
             g.drawLine( 300, 0, 300, 300 );
+        }
+        else {
+            g.drawLine( 300, 0, 300, 50 );
+            g.drawLine( 300, 275, 300, 300 );
         }
         for (int i = 0; i < particleCount; i++) {
             particles[i].drawMe(g); 
