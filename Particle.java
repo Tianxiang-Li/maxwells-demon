@@ -47,8 +47,8 @@ public class Particle {
 
     public void stayInArea() {
         if (!open) {
-            if ( oldx < 300 && x >= 300 ) { vx *= -1; }
-            if ( oldx > 300 && x <= 300 ) { vx *= -1; }
+            if ( oldx < 290 && x >= 290 ) { vx *= -1; }
+            if ( oldx > 310 && x <= 310 ) { vx *= -1; }
         }
         
         if ( x <= 50 || x >= 550 ) { vx *= -1; }
