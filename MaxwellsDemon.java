@@ -5,6 +5,7 @@ import javax.swing.*;
 public class MaxwellsDemon extends JFrame 
     implements ActionListener {
     JPanel playArea;
+    JPanel buttons;
     JButton reset;
     JButton addP;
     Timer clicky;
@@ -29,13 +30,16 @@ public class MaxwellsDemon extends JFrame
         initialPlayArea();
         add(playArea);
 
-        
+        buttons = new JPanel();
+        buttons.setBackground( Color.WHITE );
+        buttons.setLayout( new FlowLayout() );
         reset = new JButton( "Reset" );
-        add(reset);
+        buttons.add(reset);
         reset.addActionListener(this);
         addP = new JButton( "Add" );
-        add(addP);
+        buttons.add(addP);
         addP.addActionListener(this);
+        add(buttons);
 
         addMouseListener( 
             new MouseAdapter() {
@@ -72,6 +76,7 @@ public class MaxwellsDemon extends JFrame
 
     @Override
     public void paint( Graphics g ) {
+        super.paint( g );
         g.setColor( Color.YELLOW );
         g.fillRect( 0, 0, 600, 300 );
         g.setColor( Color.BLACK );
