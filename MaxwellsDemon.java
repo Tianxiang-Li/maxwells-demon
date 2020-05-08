@@ -5,13 +5,12 @@ import javax.swing.*;
 public class MaxwellsDemon extends JFrame 
     implements ActionListener {
     JPanel playArea;
-    JPanel buttons;
     JButton reset;
     JButton addP;
     Timer clicky;
     Particle[] particles;
     int particleCount;
-    double deltat = 0.1;
+    double deltat = 0.01;
     double leftTemp = 0, rightTemp = 0;
     int leftCount = 0, rightCount = 0;
     int resolution = Toolkit.getDefaultToolkit().getScreenResolution();
@@ -25,36 +24,20 @@ public class MaxwellsDemon extends JFrame
         setTitle( "Maxwell's Demon" );
         setLayout( new GridLayout (2, 1) );
 
-        clicky = new Timer( (int)( 1000 * deltat ), this );
-        clicky.start();
+        
 
         initialPlayArea();
         add(playArea);
 
-        buttons = new JPanel();
-        buttons.setBackground( Color.WHITE );
-        buttons.setLayout( new FlowLayout() );
-        add(buttons);
-        reset = new JButton( "reset" );
+        
+        reset = new JButton( "Reset" );
         add(reset);
         reset.addActionListener(this);
-
-        addP = new JButton( "add particles" );
+        addP = new JButton( "Add" );
         add(addP);
         addP.addActionListener(this);
 
-
-        setSize( new Dimension( 600, 600 ) );
-        setVisible(true);
-    }
-
-    public void initialPlayArea() {
-        playArea = new JPanel();
-        playArea.setSize(600, 300);
-        particleCount = 10;
-        particles = new Particle[100];
-        for ( int i = 0; i < particleCount; i++ ) { particles[i] = new Particle(); } 
-        playArea.addMouseListener( 
+        addMouseListener( 
             new MouseAdapter() {
                 public void mousePressed( MouseEvent m ) {
                     for (int i = 0; i < particleCount; i++) {
@@ -70,6 +53,20 @@ public class MaxwellsDemon extends JFrame
                 }
             }
         );
+
+        clicky = new Timer( (int)( 10000 * deltat ), this );
+        clicky.start();
+
+        setSize( 600, 600 );
+        setVisible(true);
+    }
+
+    public void initialPlayArea() {
+        playArea = new JPanel();
+        playArea.setSize(600, 300);
+        particleCount = 10;
+        particles = new Particle[100];
+        for ( int i = 0; i < particleCount; i++ ) { particles[i] = new Particle(); } 
         
     }
 
@@ -92,8 +89,8 @@ public class MaxwellsDemon extends JFrame
                 rightCount++;
             }
         }
-        leftTemp = leftTemp / leftCount / 10000;
-        rightTemp = rightTemp / rightCount / 10000; 
+        leftTemp /= leftCount * resolution * 100;
+        rightTemp /= rightCount * resolution * 100; 
         g.setColor(Color.BLACK);
         g.drawString("left chamber average temperature: " + String.format("%.2f", leftTemp), 20, 280);
         g.drawString("right chamber average temperature: " + String.format("%.2f", rightTemp), 320, 280);

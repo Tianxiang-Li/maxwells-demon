@@ -13,7 +13,7 @@ public class Particle {
     public Particle() {
         x = Math.random() * 500 + 50;
         y = Math.random() * 200 + 50;
-        v = 200 + Math.random() * 400;
+        v = (2 + Math.random() * 4) * resolution;
         a = Math.random() * 2 * Math.PI;
         vx = v * Math.cos(a);
         vy = v * Math.sin(a);
@@ -26,8 +26,8 @@ public class Particle {
         x = x1;
         y = y1;
         isFast = speed;
-        if (isFast) { v = 400 + Math.random() * 200; }
-        else {v = 200 + Math.random() * 200; }
+        if (isFast) { v = (4 + Math.random() * 2) * resolution; }
+        else {v = (2 + Math.random() * 2) * resolution; }
         a = Math.random() * 2 * Math.PI;
         vx = v * Math.cos(a);
         vy = v * Math.sin(a);
