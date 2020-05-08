@@ -83,11 +83,11 @@ public class MaxwellsDemon extends JFrame
         for (int i = 0; i < particleCount; i++) {
             particles[i].drawMe(g); 
             double toAdd = particles[i].v * particles[i].v;
-            if (particles[i].x < 300) { 
+            if (particles[i].x <= 300) { 
                 leftTemp += toAdd; 
                 leftCount++;
             }
-            else if (particles[i].x > 300) {
+            else if (particles[i].x >= 300) {
                 rightTemp += toAdd; 
                 rightCount++;
             }
