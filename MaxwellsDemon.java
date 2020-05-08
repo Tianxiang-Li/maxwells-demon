@@ -87,7 +87,7 @@ public class MaxwellsDemon extends JFrame
                 leftTemp += toAdd; 
                 leftCount++;
             }
-            else {
+            else if (particles[i].x > 300) {
                 rightTemp += toAdd; 
                 rightCount++;
             }
