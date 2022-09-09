@@ -1,5 +1,4 @@
 # Maxwell's Demon
-## COSC 150 - Advanced Programming
 
 - [Description](#description)
 - [Specification and requirements](#specification-and-requirements)
