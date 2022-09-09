@@ -1,8 +1,7 @@
 # Maxwell's Demon
 
 - [Description](#description)
-- [Specification and requirements](#specification-and-requirements)
-- [Provided files](#provided-files)
+- [Specification](#specification)
 
 ## Description
 
@@ -13,9 +12,7 @@ The 19th century mathematical physicist, James Maxwell, is best-known for develo
 
 In other words, Maxwell envisioned a box split into two halves, with a door between the parts that could be opened or closed by a "demon" who observed every particle in the box. By carefully opening and closing the door at the correct moments, the demon could place all the fast-moving (i.e., hot) particles on one side of the door and all the slow-moving (i.e., cold) particles on the other side, reducing the entropy of the system.
 
-## Specification and requirements
-
-### Specification
+## Specification
 
 In this assignment you will create a Java program that lets the user play as Maxwell's demon. You will create a GUI for the program, an appropriate data model to store the state of the game, and controllers to allow the game to update over time and in response to the user.
 
@@ -57,30 +54,3 @@ As the Java2D Graphics object works in pixel-based coordinates, speeds measured 
 // Returns the pixels per inch of the current display
 int resolution = Toolkit.getDefaultToolkit().getScreenResolution();
 ```
-
-### Requirements
-
-You will create the following design document files and add them to your repository:
-- `GUIDesign.pdf`, a sketch of the appearance of your game. You should include all of the required components of the interface. This may be done in any medium you like (pencil, crayon, oil paint on canvas) provided you can photograph it legibly and upload it as a PDF.
-- `ObjectDiagram.pdf`, a UML object diagram describing the state of your program at the beginning of the game (recall that an object diagram is like a class diagram, but describes all instances of classes rather than only their abstract relationships). Your diagram should include
-  - All data objects/structures which manage the state of the game
-  - All GUI elements (Swing containers/components) and their heirarchy/relationships
-  - All event handlers and their relationships to the objects/events they subscribe to.
-In addition, to the usual UML annotations for these relationships, include also a notation (with key, as appropriate) of which objects are part of the Model, which are part of the View, and which are part of the Controller (if an object fills more than one role, denote that as well).
-
-These diagrams will be hand-graded by me.
-
-You will also create the following "code-based" files to submit.
-- `Instructions.txt`, a text file describing how to play your game (what class contains main() to start, info on any non-standard features, etc.)
-- All Java source code files needed to compile and play your game. There is no required name for these files; your `Instructions.txt` will tell me how to properly begin your game.
-
-This part of the project will also be hand-graded by me (Travis is bad at games)     
-
-## Provided files
-
-The following files related to project logistics are present in your repository:
-- `README.md` which provides this specification.
-- `.gitignore` which specifies files git should NOT track.
-
-I have also provided a reference document, `kinematics_notes.pdf` that gives a kinematic description of simple particle dynamics as well as a way of converting particle speeds into horiziontal/vertical components of velocity based on travel direction (i.e., angle). You may reference this document as needed (based on how long it's been since you took a physics class).
-
